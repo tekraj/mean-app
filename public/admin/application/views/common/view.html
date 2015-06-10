@@ -1,0 +1,21 @@
+<h3>View-{{tabledata.headingTitle}}</h3>
+<table class="table table-striped" >
+<tr>
+	<tr data-ng-repeat="name in notSorted(viewHeading)">
+	<td>{{name | uppercase}}</td>
+	<td>
+		<div data-ng-if="name=='image'" class="col-md-6 col-md-offset-3">
+			<img src="{{tabledata.viewInfo[name]}}" class="img-responsive dataimg">
+		</div>
+		<div data-ng-if="name!='image'">
+			{{tabledata.viewInfo[name]}}
+		</div>
+	</td>
+	
+	<!-- <div ng-if="name!='image'">
+		<td>{{tabledata.viewInfo[name]}}</td>
+	</div> -->
+	
+	</tr>
+</tr>
+</table>

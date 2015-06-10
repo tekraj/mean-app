@@ -1,0 +1,55 @@
+  <div class="panel panel-default">
+    <div class="panel-heading"> Search {{title | uppercase}}</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-lg-12">
+          <form role="form" action="" method="post">
+          <div class="col-lg-4">
+            <div class="form-group" name="searchForm">
+              <label>Search By</label>
+               <select name="searchby" class="form-control" id="searchby" data-ng-model="search.searchby" data-ng-options="obj.title as obj.fieldName for obj in selectOptions"  >
+                 <option value="">Select</option>
+               </select>
+            </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label>Search Keyword</label>
+                <input name="searchkey" class="form-control" id="searchkey" placeholder="Enter keyword" data-ng-model="search.searchkey">
+              </div>
+            </div>            
+            <div class="col-lg-4">
+              <div class="form-group">
+                <br />
+                <button type="submit" name="search" class="btn btn-default" id="searchButton" data-ng-click="search.submitTheForm()">Search</button>
+              </div>            
+            </div>
+          </form>
+        </div>
+        
+      </div>
+      <!-- /.row (nested) --> 
+    </div>
+    <!-- /.panel-body --> 
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading"> List of {{ pageTitle | uppercase}}  </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+      <div class="table-responsive">
+        <table id="myTable" class="table table-striped" > 
+          <thead>
+            <th>SN</th>
+            <th data-ng-repeat="ths in tableFields">{{ths | uppercase}}</th>
+            <th>Edit/Delete/View</th>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+        <div id="pagination"></div>
+      </div>
+      <!-- /.table-responsive --> 
+    </div>
+    <!-- /.panel-body --> 
+  </div>
