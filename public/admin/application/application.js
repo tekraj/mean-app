@@ -30,3 +30,21 @@ adminApp.config(function($routeProvider){
 		redirectTo:'/'
 	});
 });
+
+
+// ajax service
+
+adminApp.service('ajaxService',function($http){
+
+	this.callAjax=function(data,url,callback){
+		$http({
+			method:'post',
+			url:url,
+			data:data,
+			headers:{'Content-Type':'application/json'}
+		}).success(function(datas,status,header,config){
+			
+			return callback(datas);
+		})
+	}
+})

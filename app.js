@@ -20,8 +20,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', frontRoute);
 app.use('/admin', adminRoute);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -55,5 +58,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+app.listen(3000)
+
+// module.exports = app;
 

@@ -13,6 +13,7 @@
     "ejs": "~2.3.1",
     "express": "~4.12.2",
     "express-session": "^1.11.2",
+    "mongodb": "^2.0.33",
     "mongoose": "^4.0.5",
     "morgan": "~1.5.1",
     "node-dev": "^2.6.2"
