@@ -1,0 +1,23 @@
+{
+  "name": "mean-app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tekraj/mean-app",
+  "authors": [
+    "tekraj <tekraj224@gmail.com>"
+  ],
+  "main": "bower_file",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.0",
+    "angular-route": "~1.4.0",
+    "bootstrap": "~3.3.4",
+    "font-awesome": "~4.3.0",
+    "angular-animate": "~1.4.0",
+    "ui-router": "~0.2.15"
+  }
+}

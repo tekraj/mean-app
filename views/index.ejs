@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html data-ng-app="frontApp">
+<base href="/">
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Bonfire Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+
+<link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--theme-style-->
+<link href="/frontend/css/style.css" rel="stylesheet" type="text/css" media="all" />	
+<!--//theme-style-->
+
+<link href='http://fonts.googleapis.com/css?family=Exo:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+
+<!-- jquery -->
+ <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+  <!--header-->
+	<div class="header" data-ng-controller="headerController">
+		<div class="header-top">
+			<div class="container">	
+			<div class="header-top-in">			
+				<div class="logo">
+					<a ui-sref="/home"><img src="/frontend/images/logo.png" alt=" "></a>
+				</div>
+				<div class="header-in">
+					<ul class="icon1 sub-icon1">
+							<% if(member==undefined){ %>
+							<li  ><a ui-sref="/login"> LOGIN</a></li>
+							<li  ><a ui-sref="/signup">  SIGN UP</a></li>
+							<% } else { %>
+							<li> <a href=""><%= member.username %></a></li>
+							<li><a href="logout">LOG OUT</a></li>
+							<% } %>
+							<li><a ></a></li>
+
+							<li><div class="cart">
+									<a ui-sref="/cart" class="cart-in"> </a>
+									<%
+										if(productInCart!=undefined){
+									%>
+										<span><%= productInCart.length %></span>
+									<%
+										
+										}else{
+									%>
+									<span>0</span>
+									<% } %>
+									
+									
+								
+							</li>
+						</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			</div>
+		</div>
+		<div class="header-bottom">
+		<div class="container">
+			<div class="h_menu4">
+				<a class="toggleMenu" href="#">Menu</a>
+				<ul class="nav">
+					<li data-ng-repeat="lists in category" class="first-li">
+						<a ui-sref="/category({category:lists.url,brand:'all',catId:lists._id,brandId:''})">{{lists.title}}</a>
+							<ul class="drop">
+								<span data-ng-repeat="sublists in brand">
+								<span data-ng-if="lists._id==sublists.category">
+									<li><a ui-sref="/category({category:lists.url,brand:sublists.url,catId:lists._id,brandId:sublists._id})">{{sublists.name}}</a></li>
+								</span>
+								</span>
+							</ul>
+					</li>
+					
+				</ul>
+				
+			</div>
+		</div>
+		</div>	
+	</div>
+
+	<!-- ng-view start -->
+	<div ui-view class="slide"></div>
+	<!-- ng-view end -->
+	
+	<div class="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="col-md-4 footer-in">
+					<h4><i> </i>Suspendisse sed</h4>
+					<p>Aliquam dignissim porttitor tortor non fermentum. Curabitur in magna lectus. Duis sed eros diam. Lorem ipsum dolor sit amet, consectetur.</p>
+				</div>
+				<div class="col-md-4 footer-in">
+					<h4><i class="cross"> </i>Suspendisse sed</h4>
+					<p>Aliquam dignissim porttitor tortor non fermentum. Curabitur in magna lectus. Duis sed eros diam. Lorem ipsum dolor sit amet, consectetur.</p>
+				</div>
+				<div class="col-md-4 footer-in">
+					<h4><i class="down"> </i>Suspendisse sed</h4>
+					<p>Aliquam dignissim porttitor tortor non fermentum. Curabitur in magna lectus. Duis sed eros diam. Lorem ipsum dolor sit amet, consectetur.</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<!---->
+		<div class="footer-middle">
+			<div class="container">
+				<div class="footer-middle-in">
+					<h6>About us</h6>
+					<p>Suspendisse sed accumsan risus. Curabitur rhoncus, elit vel tincidunt elementum, nunc urna tristique nisi, in interdum libero magna tristique ante. adipiscing varius. Vestibulum dolor lorem.</p>
+				</div>
+				<div class="footer-middle-in">
+					<h6>Information</h6>
+					<ul>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Delivery Information</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms & Conditions</a></li>
+					</ul>
+				</div>
+				<div class="footer-middle-in">
+					<h6>Customer Service</h6>
+					<ul>
+						<li><a href="contact.html">Contact Us</a></li>
+						<li><a href="#">Returns</a></li>
+						<li><a href="#">Site Map</a></li>
+					</ul>
+				</div>
+				<div class="footer-middle-in">
+					<h6>My Account</h6>
+					<ul>
+						<li><a href="account.html">My Account</a></li>
+						<li><a href="#">Order History</a></li>
+						<li><a href="wishlist.html">Wish List</a></li>
+						<li><a href="#">Newsletter</a></li>
+					</ul>
+				</div>
+				<div class="footer-middle-in">
+					<h6>Extras</h6>
+					<ul>
+						<li><a href="#">Brands</a></li>
+						<li><a href="#">Gift Vouchers</a></li>
+						<li><a href="#">Affiliates</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<p class="footer-class">Copyright © 2015 Modern Template by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+
+	</div>
+
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/frontend/js/nav.js"></script>
+	<script src="/frontend/js/responsiveslides.min.js"></script>
+	<script src="/frontend/js/jquery.flexisel.js"></script>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/ui-router/release/angular-ui-router.js"></script>
+	<script src="/frontend/application/application.js"></script>
+	<script src="/frontend/application/models/data-service.js"></script>
+	<script src="/frontend/application/controllers/headerController.js"></script>
+	<script src="/frontend/application/controllers/homeController.js"></script>
+	<script src="/frontend/application/controllers/loginController.js"></script>
+	<script src="/frontend/application/controllers/signupController.js"></script>
+	<script src="/frontend/application/controllers/categoryController.js"></script>
+	<script src="/frontend/application/controllers/productController.js"></script>
+	<script src="/frontend/application/controllers/orderController.js"></script>
+	<script src="/frontend/application/controllers/cartController.js"></script>
+
+</body>
+</html>

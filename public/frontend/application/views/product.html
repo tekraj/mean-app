@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="single">
+		<div class="col-md-9 top-in-single">
+			<div class="col-md-5 single-top">
+				<div id="manimage">
+					<img src="/uploads/{{productDetail.image}}" class="img-responsive">
+				</div>	
+				<ul id="etalage">
+					<li data-ng-repeat="imgs in productDetail.slider">
+						<a href="">
+							<img class="etalage_thumb_image img-responsive" src="/uploads/{{imgs}}" alt="">
+						</a>
+					</li>
+				</ul>
+
+			</div>	
+			<div class="col-md-7 single-top-in">
+				<div class="single-para">
+					<h4>{{productDetail.name | uppercase}}</h4>
+					<div class="para-grid">
+						<span class="add-to">$ {{productDetail.price}}</span>
+						<a href="" class="hvr-shutter-in-vertical cart-to" data-ng-click="addToCart(productDetail._id)">Add to Cart</a>					
+						<div class="clearfix"></div>
+					</div>
+					<h5>KEY FEATURES</h5>
+					<div ng-bind-html="productDetail.detail | to_trusted"></div>
+
+
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+
+		<div class="clearfix"> </div>
+	</div>
+</div>

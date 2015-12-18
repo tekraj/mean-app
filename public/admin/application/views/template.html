@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">{{pageTitle | uppercase}} - Management</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<span data-ng-if="title!='order' && title!='sold' && title!='home'">
+			<span><a class="btn btn-primary" href="" style="color:#fff;" data-ng-click="datalist.addNew()">Add New</a></span>
+		</span>
+		<span data-ng-if="title!='home'">
+			<span><a class="btn btn-primary" href="" style="color:#fff;" data-ng-click="datalist.viewAll()">View All</a></span>
+		</span>
+		<p></p>
+	</div>	
+</div>
+
+<div data-ng-include="templateUrl" class="slide"></div>

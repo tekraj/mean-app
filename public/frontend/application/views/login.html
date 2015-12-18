@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="account">
+		<h2 class="account-in">LOGIN</h2>
+			<div class="hide-it alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong id="err-message"></strong>
+            </div>
+			<form method="post">
+			<div> 	
+				<span class="mail">User Name*</span>
+				<input type="text" name="username" data-ng-model="formData.username"required=""> 
+			</div>
+			<div> 
+				<span class="word">Password*</span>
+				<input type="password" name="password" data-ng-model="formData.password" required="">
+			</div>
+
+			<button class="btn btn-success" data-ng-click="login()">Login</button> 
+			</form>
+			<p></p>
+			<br>
+			<p>
+				<!-- <a href="">Forget Password?</a> -->
+			</p>
+			<p></p>
+			
+	</div>
+	</div>

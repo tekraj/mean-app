@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="products">
+        <div class=" top-products">
+            <div class="col-md-12">
+                <div class="col-md-3 col-md-offset-4">
+                    <img src="" class="img-responsive">
+                </div>
+            </div>
+            
+            <h2 class="products-in">{{brand | uppercase}} {{category | uppercase}} </h2>
+            <div data-ng-repeat="prod in products" class="col-md-3 md-col">
+                <div class="col-md">
+                    <a ui-sref="/product({name:prod.url})" class="compare-in"><img src="/uploads/{{prod.image}}" alt="" class="img-responsive">
+                        <div class="compare">
+                        </div>
+                    </a>    
+                    <div class="top-content">
+                        <h5><a ui-sref="/product({name:prod.url})">{{pord.name | uppercase}} </a></h5>
+                        <div class="white">
+                            <a ui-sref="/product({name:prod.url})" class="hvr-shutter-in-vertical hvr-shutter-in-vertical2">Buy Now</a>
+                            <p class="dollar"><span class="in-dollar">$</span>{{prod.price}}<span></span></p>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>                          
+                </div>
+            </div>
+            
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

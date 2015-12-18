@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="panel panel-default">
+  <div class="panel-heading">Verify Delivery</div>
+    <div class="panel-body">
+      <div class="row">
+	      <div class="col-md-6">
+	      	<form>
+	      		<div class="form-group">
+	      			<i>Delivered By</i>
+	      			<input type="text" data-ng-model="formData.delivered_by" class="form-control">
+	      		</div>
+	      		<div class="form-group">
+	      			<i>Delivery Date</i>
+	      			<input type="text" data-ng-model="formData.delivery_date" class="form-control" id="datepicker">
+	      		</div>
+	      		<button class="btn btn-primary" data-ng-click="datalist.verifyDelivery()">Verify Delivery</button>
+      		</form>
+	      </div>
+      	
+
+      </div>
+      <!-- /.row (nested) --> 
+    </div>
+    <!-- /.panel-body --> 
+  </div>
+</div>
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+

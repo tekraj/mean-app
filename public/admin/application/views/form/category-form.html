@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="panel panel-default">
+  <div class="panel-heading"> {{ formRole |uppercase }}-{{pageTitle}}</div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-lg-6">
+          <form role="form" method="post" name="user-form">
+
+            <div class="form-group">
+              <i>Title</i>
+              <input name="title" type="text" class="form-control" placeholder="Title..." data-ng-model="formData.title" data-ng-blur="datalist.generateUrl()">
+            </div>
+            <div class="form-group">
+              <i>URL</i>
+              <input name="url" type="text" class="form-control" placeholder="URL..." data-ng-model="formData.url">
+            </div>
+            <div class="form-group">
+              <i>SEO Description</i>
+              <input name="seodesc" type="text" class="form-control" placeholder="SEO Desctiption..." data-ng-model="formData.seodesc">
+            </div>      
+
+            <div class="form-group">
+              <label>Status</label>
+
+              <select name="status" class="form-control" id="status" data-ng-model="formData.status" data-ng-options="obj.value as obj.fieldName for obj in statusField">
+                <option value="">SELECT</option>
+              </select>
+            </div>
+            <span data-ng-if="formRole=='edit'">
+              <button name="edit"  class="btn btn-default" data-ng-click="updateData()">Update {{pageTitle}}</button>
+            </span>
+            <span data-ng-if="formRole=='add'">
+              <button name="add" class="btn btn-default" data-ng-click="addData()">Create {{pageTitle}}</button>
+            </span>
+            <button type="reset" class="btn btn-default">Reset
+            </button>
+          </form>
+        </div>
+
+      </div>
+      <!-- /.row (nested) --> 
+    </div>
+    <!-- /.panel-body --> 
+  </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="container main_cont">
+	<div class="row">
+
+		<span class="cart-tab">Cart ({{productDetail.length}})</span>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"></h3>
+			</div>
+			<div class="panel-body">
+				<table class="table table-stripted cart-table">
+					<thead>
+						<tr>
+							<th>ITEM</th>
+							<th>QTY</th>
+							<th>PRICE</th>
+							<th>SUBTOTAL</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr data-ng-repeat="prod in productDetail">
+							<td>{{prod.name | uppercase}}</td>
+							<td><input type="number" data-ng-init="item=1" data-ng-model="item" data-ng-blur="cart.ChangeItem(this,$index)"><span>Change</span></td>
+								<td>{{prod.price}}</td>
+								<td class="subprice" data-ng-init="$parent.grandTotal=$parent.grandTotal+ prod.price * item ">{{prod.price * item }}</td>
+							</tr>
+							<tr>
+								<th><b>Grand Total</b></th>
+								<th></th>
+								<th></th>
+								<th id="grandTotal" ><b>{{grandTotal}}</b></th>
+							</tr>
+							<tr>
+								<td><a href="/" class="btn btn-primary">Continue Shopping</a></td>
+								<td><button class="btn btn-success" data-ng-click="cart.placeOrder()">Place Order</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>	
+		</div>
+	</div>

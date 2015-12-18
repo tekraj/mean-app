@@ -1,0 +1,75 @@
+<div class="container">
+<br><br>
+      <div class="panel panel-default">
+      <div class="panel-heading"> Place Order</div>
+      <div class="panel-body">
+        <div class="row order-result">
+          <div class="col-lg-6">
+            <form role="form" name="order" method="get" action="order" id="paypal_form">
+              
+              <div class="form-group">
+                <i>Full Name</i>
+                <input name="buyer_name" type="text" class="form-control" placeholder="Full Name..." required="" data-ng-model="formData.buyer_name">
+              </div>
+               <div class="form-group">
+               <i>Mobile</i>
+                <input name="mobile" type="number" class="form-control" placeholder="Mobile" required="" data-ng-model="formData.mobile">
+              </div>          
+              <div class="form-group">
+                <i>Address</i>
+                <input type="text" name="address" class="form-control" placeholder="Address..." data-ng-model="formData.address">
+              </div>
+              <div class="form-group">
+                <i>Postal Code</i>
+                <input type="text" name="postalcode" class="form-control" placeholder="Postal Code.." data-ng-model="formData.postal">
+              </div>
+              <input type="text" name="amount" style="display:none" data-ng-model="grandTotal">
+              <input type="text" name="description" style="display:none" data-ng-model="paypalDescription">
+              <div class="form-group">
+                <b>Payment Mode</b><br>
+                <input type="radio" name="cod" id="cod" value="cash" data-ng-model="formData.payment_method"><label for="cod"> &nbsp;&nbsp;&nbsp;Cash On Delivery</label><br>
+                <input type="radio" name="cod" id="pap" value="paypal" data-ng-model="formData.payment_method"><label for="cod"> &nbsp;&nbsp;&nbsp;Pay with Paypal</label>
+              </div>
+              <button name="order" data-ng-class="{'hide-it':formData.payment_method!='cash','show-it':formData.payment_method=='cash'}" class="btn btn-default send-info" id="porder" data-ng-click="addBuyer()">Place Order</button>
+              <button name="pay" type="submit" class="btn btn-default send-info" id="payorder" data-ng-class="{'hide-it':formData.payment_method!='paypal','show-it':formData.payment_method=='paypal'}" data-ng-click="addBuyer()">Pay with PayPal</button>
+              <button type="reset" class="btn btn-default">Reset
+              </button>
+            </form>
+          </div> 
+          <div class="col-md-6">
+            <h3>Cart Summary</h3>
+            <table class="table order-table">
+              <thead>
+                <tr>
+                    <th>
+                      Products
+                    </th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-ng-repeat="prod in orderData">
+                  <td>{{prod.name | uppercase}}</td>
+                  <td>{{prod.item}}</td>
+                <td>{{prod.price}}</td>
+                <td class="subprice" data-ng-init="$parent.grandTotal=$parent.grandTotal+ prod.price * prod.item ">{{prod.price * prod.item }}</td>
+                </tr>
+                <tr>
+                  <th><b>Grand Total</b></th>
+                  <th></th>
+                  <th></th>
+                  <th id="grandTotal" ><b>{{grandTotal}}</b></th>
+                </tr>
+              </tbody>
+            </table>
+          </div>         
+        </div>
+        <!-- /.row (nested) --> 
+      </div>
+      <!-- /.panel-body --> 
+    </div>
+    
+
+</div>

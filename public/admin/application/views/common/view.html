@@ -1,0 +1,20 @@
+<span data-ng-if="title=='category'">
+	<h3>View {{viewObject.title}}</h3>
+</span>
+<span data-ng-if="title=='user'">
+	<h3>View {{viewObject.fullname}}</h3>
+</span>
+<span data-ng-if="title=='member'">
+	<h3>View {{viewObject.fullname}}</h3>
+</span>
+<span data-ng-if="title=='brand'">
+	<h3>View {{viewObject.name}}</h3>
+</span>
+<span data-ng-if="title=='product'">
+	<h3>View {{viewObject.name}}</h3>
+</span>
+<table class="table table-striped" >
+<tr data-ng-repeat="(th,td)  in viewObject">
+	<th>{{th}}</th><td>{{td}}</td>
+</tr>
+</table>

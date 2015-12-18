@@ -1,0 +1,11 @@
+<h3>View {{viewData.title}}</h3>
+<table class="table table-striped" >
+<tr data-ng-repeat="(th,td)  in viewData">
+  <th>{{th}}</th>
+  
+  	<td>
+  		<span data-ng-if="th=='date' || th=='delivery_date'">{{td | date:'medium'}}</span>
+  		<span data-ng-if="th!='date' && th!='delivery_date'">{{td}}</span>
+  	</td>
+</tr>
+</table>

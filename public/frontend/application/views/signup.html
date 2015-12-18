@@ -1,0 +1,27 @@
+<div class="container">
+		<div id="error">
+			
+		</div>
+		<div class="account">
+			<h2 class="account-in">SIGN UP</h2>
+				<form method="post"  name="signupForm">
+				<div>
+					<span>Full Name*</span>
+					<input type="text" name="name" data-ng-model="formData.fullname" required>
+				</div>
+				<div>
+					<span>User Name*</span>
+					<input type="text" name="name" data-ng-model="formData.username" required>
+				</div>			
+				<div> 	
+					<span class="mail">Email*</span>
+					<input type="email" name="email" data-ng-model="formData.email" required> 
+				</div>
+				<div> 
+					<span class="word">Password*</span>
+					<input type="password" name="password" data-ng-model="formData.password" required>
+				</div>				
+					<button class="btn btn-primary" data-ng-click="signup()">SIGN UP</button>
+				</form>
+		</div>
+	</div>

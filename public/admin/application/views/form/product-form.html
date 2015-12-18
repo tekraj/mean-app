@@ -1,0 +1,183 @@
+<div class="row">
+  <div class="panel panel-default">
+  <div class="panel-heading"> {{ formRole |uppercase }}-{{pageTitle}}</div>
+    <div class="panel-body">
+      <div class="row">
+        
+          <form role="form" method="post" name="user-form">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <i>Name</i>
+                <input name="title" type="text" class="form-control" placeholder="Title..." data-ng-model="formData.name">
+              </div>
+              
+              <div class="form-group">
+                <i>Category</i>
+                <select data-ng-options="cat._id as cat.title for cat in category" data-ng-model="formData.category" class="form-control" data-ng-change="datalist.getBrands()">
+                  <option value="">SELECT</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <i>Brand</i>
+                <select data-ng-options="brand._id as brand.name for brand in brand" data-ng-model="formData.brand" class="form-control" data-ng-change="datalist.generateUrl()">
+                  <option value="">SELECT</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <i>URL</i>
+                <input name="url" type="text" class="form-control" placeholder="URL..." data-ng-model="formData.url">
+              </div>
+              <div class="form-group">
+                <i>SEO Description</i>
+                <input name="seodesc" type="text" class="form-control" placeholder="SEO Desctiption..." data-ng-model="formData.seodesc">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+              <i>Detail</i>
+               <textarea ck-editor ng-model="formData.detail"></textarea>
+              </div>
+              <div class="col-md-6">
+                <i>Featured Image</i>
+                <div class="feat-img">
+                  <span data-ng-if="formData.image!=undefined">
+                    <img src="/uploads/{{formData.image}}" class="img-responsive">
+                  </span>
+                  <span data-ng-if="formData.image==undefined">
+                    <img src="" class="img-responsive">
+                  </span>
+                </div>              
+                <input type="file" name="file" onchange="angular.element(this).scope().uploadFeaturedImage(this)"  style="display:none">
+                <button class="add-feat-img btn btn-success" data-ng-class="{'show-it':formData.image==undefined,'hide-it':formData.image!=undefined}">Add Featured Image</button>
+                <button class="remove-feat-img btn btn-danger" data-ng-class="{'hide-it':formData.image==undefined,'show-it':formData.image!=undefined}">Remove Featured Image <i class="glyphicon glyphicon-remove-sign"></i></button>
+
+              </div>
+
+              <div class="col-md-6"></div>
+              <h1>.....................................................</h1>
+              <h3>Add Slider Images</h3>
+              <div class="col-md-12">
+
+                <div class="col-md-3">
+
+                  <div class="slider-img">
+                    <span data-ng-if="formData.slider.img1!=undefined">
+                      <img src="/uploads/{{formData.slider.img1}}" class="img-responsive">
+                    </span>
+                    <span data-ng-if="formData.slider.img1==undefined">
+                      <img src="" class="img-responsive">
+                    </span>
+                  </div>
+
+                  <input type="file" onchange="angular.element(this).scope().uploadSliderImage(this)" style="display:none">
+
+                  <button class="add-img btn btn-success" data-ng-class="{'show-it':formData.slider.img1==undefined,'hide-it':formData.slider.img1!=undefined}">
+                    Add Slider Image1
+                    </button>
+                  <button class="remove-img btn btn-danger" data-ng-class="{'show-it':formData.slider.img1!=undefined,'hide-it':formData.slider.img1==undefined}">
+                    Remove Image
+                   <i class="glyphicon glyphicon-remove-sign"></i>
+                  </button>
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <div class="slider-img">
+                    <span data-ng-if="formData.slider.img2!=undefined">
+                      <img src="/uploads/{{formData.slider.img2}}" class="img-responsive">
+                    </span>
+                    <span data-ng-if="formData.slider.img2==undefined">
+                      <img src="" class="img-responsive">
+                    </span>
+                  </div>
+
+                  <input type="file" onchange="angular.element(this).scope().uploadSliderImage(this)" style="display:none">
+
+                  <button class="add-img btn btn-success" data-ng-class="{'show-it':formData.slider.img2==undefined,'hide-it':formData.slider.img2!=undefined}">
+                    Add Slider Image2
+                    </button>
+                  <button class="remove-img btn btn-danger" data-ng-class="{'show-it':formData.slider.img2!=undefined,'hide-it':formData.slider.img2==undefined}">
+                    Remove Image
+                   <i class="glyphicon glyphicon-remove-sign"></i>
+                  </button>
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <div class="slider-img">
+                    <span data-ng-if="formData.slider.img3!=undefined">
+                      <img src="/uploads/{{formData.slider.img3}}" class="img-responsive">
+                    </span>
+                    <span data-ng-if="formData.slider.img3==undefined">
+                      <img src="" class="img-responsive">
+                    </span>
+                  </div>
+
+                  <input type="file" onchange="angular.element(this).scope().uploadSliderImage(this)" style="display:none">
+
+                  <button class="add-img btn btn-success" data-ng-class="{'show-it':formData.slider.img3==undefined,'hide-it':formData.slider.img3!=undefined}">
+                    Add Slider Image3
+                    </button>
+                  <button class="remove-img btn btn-danger" data-ng-class="{'show-it':formData.slider.img3!=undefined,'hide-it':formData.slider.img3==undefined}">
+                    Remove Image
+                   <i class="glyphicon glyphicon-remove-sign"></i>
+                  </button>
+
+                </div>
+
+                <div class="col-md-3">
+
+                  <div class="slider-img">
+                    <span data-ng-if="formData.slider.img4!=undefined">
+                      <img src="/uploads/{{formData.slider.img4}}" class="img-responsive">
+                    </span>
+                    <span data-ng-if="formData.slider.img4==undefined">
+                      <img src="" class="img-responsive">
+                    </span>
+                  </div>
+
+                  <input type="file" onchange="angular.element(this).scope().uploadSliderImage(this)" style="display:none">
+
+                  <button class="add-img btn btn-success" data-ng-class="{'show-it':formData.slider.img4==undefined,'hide-it':formData.slider.img4!=undefined}">
+                    Add Slider Image4
+                    </button>
+                  <button class="remove-img btn btn-danger" data-ng-class="{'show-it':formData.slider.img4!=undefined,'hide-it':formData.slider.img4==undefined}">
+                    Remove Image
+                   <i class="glyphicon glyphicon-remove-sign"></i>
+                  </button>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+            <div class="form-group">
+              <i>Price</i>
+              <input type="number" data-ng-model="formData.price" class="form-control">     
+            </div>
+            <div class="form-group">
+              <label>Status</label>
+
+              <select name="status" class="form-control" id="status"  data-ng-options="obj.value as obj.fieldName for obj in statusField" data-ng-model="formData.status">
+                <option value="">SELECT</option>
+              </select>
+            </div>
+            <span data-ng-if="formRole=='edit'">
+              <button name="edit"  class="btn btn-default" data-ng-click="updateData()">Update {{pageTitle}}</button>
+            </span>
+            <span data-ng-if="formRole=='add'">
+              <button name="add" class="btn btn-default" data-ng-click="addData()">Create {{pageTitle}}</button>
+            </span>
+            <button type="reset" class="btn btn-default">Reset
+            </button>
+            </div>
+          </form>
+
+      </div>
+      <!-- /.row (nested) --> 
+    </div>
+    <!-- /.panel-body --> 
+  </div>
+
+</div>
